@@ -35,7 +35,7 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore();
 
-
+let container = document.getElementById("main");
 let popup = document.getElementById("popup");
 let btn = document.getElementById("add");
 let popBtn = document.getElementById("newtask");
@@ -198,7 +198,7 @@ async function SignIn() {
             const token = credential.accessToken;
             // The signed-in user info.
             let user = result.user;
-            location.replace('/main.html')
+            container.classList.add("open-container");
             alert("Successfully LoggedIn");
             // ...
         }).catch((error) => {

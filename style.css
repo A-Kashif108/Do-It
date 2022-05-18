@@ -174,7 +174,7 @@ a:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    visibility: hidden;
 }
 
 
@@ -189,6 +189,9 @@ a:hover{
     text-align: center;
     visibility: hidden;
     transition: transform 0.4s, top 0.4s;
+}
+.open-container{
+  visibility: visible;
 }
 
 .open-popup{

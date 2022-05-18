@@ -11,6 +11,38 @@
     <div class="signIn">
         <img src="g_SignIn.png" class="sign" id="logIn">
     </div>
+    <header>
+        <h1>Do It</h1>
+    </header>
+    <button id="newtask" class="add" >Add Task</button>
+    <div class="container" id="main">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'all')">All</button>
+            <button class="tablinks" onclick="openTab(event, 'missed')">Missed</button>
+            <button class="tablinks" onclick="openTab(event, 'completed')">Completed</button>
+          </div>
+        <div class="popup" id="popup">
+            <h2>Add New Task</h2>
+            <form id="frm">
+                <input class="title" id="ttl" type="text"  placeholder="Title">
+                <textarea  id="tsk" rows="3" placeholder="Description"></textarea>
+                <input type="datetime-local" id="Deadline" name="Deadline">
+            </form>
+                <button class="new" id="add" >Add</button>
+                <button class="cancel" id="cancel" >X</button>
+            </div>
+        <div class="tasks" id="all">
+          <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="tasks" id="missed">
+          <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="tasks" id="completed">
+          <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
+    <script src="./tabview.js" >
+    </script>
     <script src="./firebase.js" type="module"></script>
 </body>
 </html>
