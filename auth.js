@@ -32,8 +32,9 @@ async function SignIn() {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             // The signed-in user info.
-            const user = result.user;
-            alert(token+user);
+            let user = result.user;
+            location.replace('/main.html')
+            alert("Successfully LoggedIn");
             // ...
         }).catch((error) => {
             // Handle Errors here.
