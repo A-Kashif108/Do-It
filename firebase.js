@@ -190,12 +190,14 @@ const auth = getAuth();
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    
+    logIN.classList.add("close-signIn");
+    container.classList.add("open-container");
     const uid = user.uid;
     // ...
   } else {
     // User is signed out
-    // ...
+    logIN.classList.remove("close-signIn");
+    container.classList.remove("open-container");
   }
 });
 
