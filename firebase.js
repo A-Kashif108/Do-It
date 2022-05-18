@@ -49,60 +49,14 @@ let logIN = document.getElementById("log");
 const title = frm["ttl"];
 const description = frm["tsk"];
 
-
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";;
-
-const auth = getAuth();
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    logIN.classList.add("close-signIn");
-    container.classList.add("open-container");
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    logIN.classList.remove("close-signIn");
-    container.classList.remove("open-container");
-  }
-});
-
-const provider = new GoogleAuthProvider();
-async function SignIn() {
-    
-    await signInWithPopup(auth, provider)
-      .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            let user = result.user;
-            logIN.classList.add("close-signIn");
-            container.classList.add("open-container");
-            alert(user.uid);
-            // ...
-        }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
-            alert(errorCode+" "+errorMessage+" "+email+" "+credential);
-        });
-    }
-
-
-
 popBtn.addEventListener("click", ()=>{
   popup.classList.add("open-popup");
   title.focus();
 });
 
+
   btn.addEventListener("click", async ()=>{
-    const docRef = await addDoc(collection(db, user.uid), {
+    const docRef = await addDoc(collection(db, "tasks"), {
       Title: title.value,
       Description: description.value,
       status:"notDone",
@@ -197,14 +151,14 @@ const btnsMissed = document.querySelectorAll("#missBtn");
 
 btnsDone.forEach((btn)=>
   btn.addEventListener("click", async({target: {dataset}})=>{
-    const taskRef = doc(db, user.uid, dataset.id);
+    const taskRef = doc(db, 'tasks', dataset.id);
   await setDoc(taskRef, { status: "Done" }, { merge: true });
   })
 );
 
 btnsMissed.forEach((btn)=>
   btn.addEventListener("click", async({target: {dataset}})=>{
-    const taskRef = doc(db, user.uid, dataset.id);
+    const taskRef = doc(db, 'tasks', dataset.id);
   await setDoc(taskRef, { status: "Missed" }, { merge: true });
   })
 );
@@ -213,14 +167,14 @@ const btnsDelete = document.querySelectorAll("#delBtn");
 
 btnsDelete.forEach((butn)=>
 butn.addEventListener("click", async({target: {dataset}})=>{
-  const taskRef = doc(db, user.uid, dataset.id);
+  const taskRef = doc(db, 'tasks', dataset.id);
   await deleteDoc(taskRef);
 }));
 const btnsReshed = document.querySelectorAll("#editBtn");
 
 btnsReshed.forEach((btn)=>
 btn.addEventListener("click", async({target: {dataset}})=>{
-  const taskRef = doc(db, user,uid, dataset.id);
+  const taskRef = doc(db, 'tasks', dataset.id);
   const dataSnap = await getDoc(taskRef);
   const data = dataSnap.data();
   popup.classList.add("open-popup");
@@ -230,49 +184,49 @@ btn.addEventListener("click", async({target: {dataset}})=>{
   
 }));
 
-// import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";;
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";;
 
-// const auth = getAuth();
+const auth = getAuth();
 
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     logIN.classList.add("close-signIn");
-//     container.classList.add("open-container");
-//     const uid = user.uid;
-//     // ...
-//   } else {
-//     // User is signed out
-//     logIN.classList.remove("close-signIn");
-//     container.classList.remove("open-container");
-//   }
-// });
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    logIN.classList.add("close-signIn");
+    container.classList.add("open-container");
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    logIN.classList.remove("close-signIn");
+    container.classList.remove("open-container");
+  }
+});
 
-// const provider = new GoogleAuthProvider();
-// async function SignIn() {
+const provider = new GoogleAuthProvider();
+async function SignIn() {
     
-//     await signInWithPopup(auth, provider)
-//       .then((result) => {
-//             // This gives you a Google Access Token. You can use it to access the Google API.
-//             const credential = GoogleAuthProvider.credentialFromResult(result);
-//             const token = credential.accessToken;
-//             // The signed-in user info.
-//             let user = result.user;
-//             logIN.classList.add("close-signIn");
-//             container.classList.add("open-container");
-//             alert(user.uid);
-//             // ...
-//         }).catch((error) => {
-//             // Handle Errors here.
-//             const errorCode = error.code;
-//             const errorMessage = error.message;
-//             // The email of the user's account used.
-//             const email = error.email;
-//             // The AuthCredential type that was used.
-//             const credential = GoogleAuthProvider.credentialFromError(error);
-//             // ...
-//             alert(errorCode+" "+errorMessage+" "+email+" "+credential);
-//         });
-//     }
+    await signInWithPopup(auth, provider)
+      .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            let user = result.user;
+            logIN.classList.add("close-signIn");
+            container.classList.add("open-container");
+            alert(user.uid);
+            // ...
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+            alert(errorCode+" "+errorMessage+" "+email+" "+credential);
+        });
+    }
     
     let signInBTN = document.getElementById("logIn");
     signInBTN.addEventListener("click", ()=>{
