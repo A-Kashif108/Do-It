@@ -4,12 +4,17 @@ body{
 
 .signIn {
   margin: auto;
-  margin-top: 100px;
+  margin-top: 200px;
   height: 150px;
   width: 300px;
   border-radius: 20px;
   background-color: #076d09;
+  visibility: visible;
 }
+.close-signIn {
+  visibility: hidden;
+}
+
 img{
   margin-top: 30px;
   margin-left: 40px;

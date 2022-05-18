@@ -45,6 +45,7 @@ let all = document.getElementById("all");
 let completed = document.getElementById("completed");
 let missed = document.getElementById("missed");
 let deadline = document.getElementById("Deadline");
+let logIN = document.getElementById("log");
 const title = frm["ttl"];
 const description = frm["tsk"];
 
@@ -183,10 +184,20 @@ btn.addEventListener("click", async({target: {dataset}})=>{
   
 }));
 
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";;
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";;
 
 const auth = getAuth();
 
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
 
 const provider = new GoogleAuthProvider();
 async function SignIn() {
@@ -198,6 +209,7 @@ async function SignIn() {
             const token = credential.accessToken;
             // The signed-in user info.
             let user = result.user;
+            logIN.classList.add("close-signIn");
             container.classList.add("open-container");
             alert("Successfully LoggedIn");
             // ...
@@ -219,6 +231,7 @@ async function SignIn() {
         SignIn();
     });
 
+    
 
 
 
