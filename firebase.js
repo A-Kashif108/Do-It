@@ -72,7 +72,7 @@ popBtn.addEventListener("click", ()=>{
 
 
 
-const q = query(collection(db, user.uid));
+const q = query(collection(db, "tasks"));
 const querySnapshot = await getDocs(q);
 
 all.innerHTML = "";
@@ -101,7 +101,7 @@ querySnapshot.forEach((doc) => {
 
 
 
-const comp = query(collection(db, user.uid), where("status", "==", "Done"));
+const comp = query(collection(db, "tasks"), where("status", "==", "Done"));
 const completedSnapshot = await getDocs(comp);
 
 
@@ -121,7 +121,7 @@ completedSnapshot.forEach((doc) => {
 </div>`;
 
 });
-const miss = query(collection(db, user.uid), where("status", "==", "Missed"));
+const miss = query(collection(db, "tasks"), where("status", "==", "Missed"));
 const missedSnapshot = await getDocs(miss);
 
 
