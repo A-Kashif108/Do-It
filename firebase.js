@@ -56,7 +56,7 @@ popBtn.addEventListener("click", ()=>{
 
 
   btn.addEventListener("click", async ()=>{
-    const docRef = await addDoc(collection(db, "tasks"), {
+    const docRef = await addDoc(collection(db, user.uid), {
       Title: title.value,
       Description: description.value,
       status:"notDone",
@@ -72,7 +72,7 @@ popBtn.addEventListener("click", ()=>{
 
 
 
-const q = query(collection(db, "tasks"));
+const q = query(collection(db, user.uid));
 const querySnapshot = await getDocs(q);
 
 all.innerHTML = "";
@@ -101,7 +101,7 @@ querySnapshot.forEach((doc) => {
 
 
 
-const comp = query(collection(db, "tasks"), where("status", "==", "Done"));
+const comp = query(collection(db, user.uid), where("status", "==", "Done"));
 const completedSnapshot = await getDocs(comp);
 
 
@@ -121,7 +121,7 @@ completedSnapshot.forEach((doc) => {
 </div>`;
 
 });
-const miss = query(collection(db, "tasks"), where("status", "==", "Missed"));
+const miss = query(collection(db, user.uid), where("status", "==", "Missed"));
 const missedSnapshot = await getDocs(miss);
 
 
@@ -151,14 +151,14 @@ const btnsMissed = document.querySelectorAll("#missBtn");
 
 btnsDone.forEach((btn)=>
   btn.addEventListener("click", async({target: {dataset}})=>{
-    const taskRef = doc(db, 'tasks', dataset.id);
+    const taskRef = doc(db, user.uid, dataset.id);
   await setDoc(taskRef, { status: "Done" }, { merge: true });
   })
 );
 
 btnsMissed.forEach((btn)=>
   btn.addEventListener("click", async({target: {dataset}})=>{
-    const taskRef = doc(db, 'tasks', dataset.id);
+    const taskRef = doc(db, user.uid, dataset.id);
   await setDoc(taskRef, { status: "Missed" }, { merge: true });
   })
 );
@@ -167,14 +167,14 @@ const btnsDelete = document.querySelectorAll("#delBtn");
 
 btnsDelete.forEach((butn)=>
 butn.addEventListener("click", async({target: {dataset}})=>{
-  const taskRef = doc(db, 'tasks', dataset.id);
+  const taskRef = doc(db, user.uid, dataset.id);
   await deleteDoc(taskRef);
 }));
 const btnsReshed = document.querySelectorAll("#editBtn");
 
 btnsReshed.forEach((btn)=>
 btn.addEventListener("click", async({target: {dataset}})=>{
-  const taskRef = doc(db, 'tasks', dataset.id);
+  const taskRef = doc(db, user,uid, dataset.id);
   const dataSnap = await getDoc(taskRef);
   const data = dataSnap.data();
   popup.classList.add("open-popup");
