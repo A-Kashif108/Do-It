@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do It</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Do It</h1>
+    </header>
+    <main>
+        <section>
+            <h2></h2>
+        </section>
+    </main>
+    <button id="newtask" class="add" >Add Task</button>
+    <div class="container">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'all')">All</button>
+            <button class="tablinks" onclick="openTab(event, 'missed')">Missed</button>
+            <button class="tablinks" onclick="openTab(event, 'completed')">Completed</button>
+          </div>
+        <div class="popup" id="popup">
+            <h2>Add New Task</h2>
+            <form id="frm">
+                <input class="title" id="ttl" type="text"  placeholder="Title">
+                <textarea  id="tsk" rows="3" placeholder="Description"></textarea>
+                <input type="datetime-local" id="Deadline" name="Deadline">
+            </form>
+                <button class="new" id="add" >Add</button>
+                <button class="cancel" id="cancel" >X</button>
+            </div>
+        <div class="tasks" id="all">
+          <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="tasks" id="missed">
+          <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="tasks" id="completed">
+          <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
+<script src="./tabview.js" >
+//   document.getElementById("all").style.display = "block";
+//     function openTab(evt, tabName) {
+//   var i, task, tablinks;
+//   task = document.getElementsByClassName("tasks");
+//   for (i = 0; i < task.length; i++) {
+//     task[i].style.display = "none";
+//   }
+//   tablinks = document.getElementsByClassName("tablinks");
+//   for (i = 0; i < tablinks.length; i++) {
+//     tablinks[i].className = tablinks[i].className.replace(" active", "");
+//   }
+//   document.getElementById(tabName).style.display = "block";
+//   evt.currentTarget.className += " active";
+// }
+</script>
+<script src="./firebase.js" type="module"></script>
+</body>
+</html>
