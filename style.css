@@ -1,6 +1,25 @@
 body{
     background-color: #182018;
 }
+
+.signIn {
+  margin: auto;
+  height: 150px;
+  width: 300px;
+  border-radius: 20px;
+  background-color: #076d09;
+}
+img{
+  margin-top: 30px;
+  margin-left: 40px;
+  height: 50px;
+  object-fit: cover;
+
+}
+img:hover{
+  cursor: pointer;
+}
+
 .lds-default {
     display: inline-block;
     position: relative;
