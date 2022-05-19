@@ -215,8 +215,8 @@ async function SignIn() {
             let user = result.user;
             logIN.classList.add("close-signIn");
             container.classList.add("open-container");
-            logout.classList.add("open-logout");
-            btn.classList.add("open-add");
+            // logout.classList.add("open-logout");
+            // btn.classList.add("open-add");
             uid = user.uid;
             alert("Successfully LoggedIn");
             // ...
