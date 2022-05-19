@@ -58,7 +58,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signO
 
 const auth = getAuth();
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) =>   {
   if (user) {
     logIN.classList.add("close-signIn");
     container.classList.add("open-container");
