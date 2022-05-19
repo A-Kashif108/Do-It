@@ -56,7 +56,7 @@ popBtn.addEventListener("click", ()=>{
 
 
   btn.addEventListener("click", async ()=>{
-    const docRef = await addDoc(collection(db, "tasks"), {
+    const docRef = await addDoc(collection(db, user.uid), {
       Title: title.value,
       Description: description.value,
       status:"notDone",
