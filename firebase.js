@@ -48,6 +48,7 @@ let deadline = document.getElementById("Deadline");
 let logIN = document.getElementById("log");
 var uid="";
 
+
 const title = frm["ttl"];
 const description = frm["tsk"];
 
