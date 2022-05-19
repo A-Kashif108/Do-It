@@ -46,7 +46,7 @@ let completed = document.getElementById("completed");
 let missed = document.getElementById("missed");
 let deadline = document.getElementById("Deadline");
 let logIN = document.getElementById("log");
-let uid ="";
+var uid ="";
 const title = frm["ttl"];
 const description = frm["tsk"];
 
@@ -192,7 +192,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     logIN.classList.add("close-signIn");
     container.classList.add("open-container");
-    const uid = user.uid;
+    uid = user.uid;
     // ...
   } else {
     // User is signed out
