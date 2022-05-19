@@ -47,7 +47,7 @@ let completed = document.getElementById("completed");
 let missed = document.getElementById("missed");
 let deadline = document.getElementById("Deadline");
 let logIN = document.getElementById("log");
-var uid ="";
+var uid ="a";
 const title = frm["ttl"];
 const description = frm["tsk"];
 
