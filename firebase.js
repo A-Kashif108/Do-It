@@ -46,6 +46,7 @@ let completed = document.getElementById("completed");
 let missed = document.getElementById("missed");
 let deadline = document.getElementById("Deadline");
 let logIN = document.getElementById("log");
+let uid ="";
 const title = frm["ttl"];
 const description = frm["tsk"];
 
@@ -56,7 +57,7 @@ popBtn.addEventListener("click", ()=>{
 
 
   btn.addEventListener("click", async ()=>{
-    const docRef = await addDoc(collection(db, user.uid), {
+    const docRef = await addDoc(collection(db, uid), {
       Title: title.value,
       Description: description.value,
       status:"notDone",
@@ -213,7 +214,8 @@ async function SignIn() {
             let user = result.user;
             logIN.classList.add("close-signIn");
             container.classList.add("open-container");
-            alert(user.uid);
+            uid = user.uid;
+            alert("Successfully LoggedIn");
             // ...
         }).catch((error) => {
             // Handle Errors here.
