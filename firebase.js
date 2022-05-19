@@ -238,15 +238,15 @@ async function SignIn() {
         SignIn();
     });
 
-    logout.addEventListener("click", async ()=>{
-      signOut(auth).then(() => {
-        logout.classList.remove("open-logout");
-        btn.classList.remove("open-add");
-        // Sign-out successful.
-      }).catch((error) => {
-        alert(error.code);
-      });
-    });
+    // logout.addEventListener("click", async ()=>{
+    //   signOut(auth).then(() => {
+    //     logout.classList.remove("open-logout");
+    //     btn.classList.remove("open-add");
+    //     // Sign-out successful.
+    //   }).catch((error) => {
+    //     alert(error.code);
+    //   });
+    // });
 
 
 
