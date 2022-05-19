@@ -173,6 +173,10 @@ a:hover{
     cursor: pointer;
     background-color: #076d09;
     color: #c7eae4;
+    visibility: hidden;
+}
+.open-add{
+  visibility: visible;
 }
 .logout{
     position: absolute;
@@ -186,6 +190,10 @@ a:hover{
     cursor: pointer;
     background-color: #536d54;
     color: #c7eae4;
+    visibility: hidden;
+}
+.open-logout{
+  visibility: visible;
 }
 .container{
     width: 100%;
