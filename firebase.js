@@ -46,6 +46,7 @@ let completed = document.getElementById("completed");
 let missed = document.getElementById("missed");
 let deadline = document.getElementById("Deadline");
 let logIN = document.getElementById("log");
+var uid="";
 
 const title = frm["ttl"];
 const description = frm["tsk"];
@@ -193,7 +194,7 @@ onAuthStateChanged(auth, (user) => {
     container.classList.add("open-container");
     logout.classList.add("open-logout");
     popBtn.classList.add("open-add");
-    let uid = user.uid;
+    uid = user.uid;
     // ...
   } else {
     // User is signed out
@@ -218,7 +219,7 @@ async function SignIn() {
             container.classList.add("open-container");
             logout.classList.add("open-logout");
             popBtn.classList.add("open-add");
-            let uid = user.uid;
+            uid = user.uid;
             alert("Successfully LoggedIn");
             // ...
         }).catch((error) => {
