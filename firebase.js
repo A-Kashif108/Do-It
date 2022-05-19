@@ -55,7 +55,6 @@ popBtn.addEventListener("click", ()=>{
   title.focus();
 });
 
-
   btn.addEventListener("click", async ()=>{
     const docRef = await addDoc(collection(db, uid), {
       Title: title.value,
