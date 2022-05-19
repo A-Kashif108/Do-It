@@ -72,7 +72,6 @@ popBtn.addEventListener("click", ()=>{
       });
 
 
-
 const q = query(collection(db, "tasks"));
 const querySnapshot = await getDocs(q);
 
