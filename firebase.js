@@ -193,12 +193,16 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     logIN.classList.add("close-signIn");
     container.classList.add("open-container");
+    logout.classList.add("open-logout");
+    popBtn.classList.add("open-add");
     uid = user.uid;
     // ...
   } else {
     // User is signed out
     logIN.classList.remove("close-signIn");
     container.classList.remove("open-container");
+    logout.classList.remove("open-logout");
+    popBtn.classList.remove("open-add");
   }
 });
 
