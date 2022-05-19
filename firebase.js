@@ -38,7 +38,6 @@ const db = getFirestore();
 let container = document.getElementById("main");
 let popup = document.getElementById("popup");
 let btn = document.getElementById("add");
-let logout = document.getElementById("logout");
 let popBtn = document.getElementById("newtask");
 let canBtn = document.getElementById("cancel");
 let frm = document.getElementById("frm");
@@ -216,7 +215,7 @@ async function SignIn() {
             logIN.classList.add("close-signIn");
             container.classList.add("open-container");
             logout.classList.add("open-logout");
-            btn.classList.add("open-add");
+            popBtn.classList.add("open-add");
             uid = user.uid;
             alert("Successfully LoggedIn");
             // ...
@@ -241,13 +240,14 @@ async function SignIn() {
     async function SignOut(){
       await signOut(auth).then(() => {
         logout.classList.remove("open-logout");
-        btn.classList.remove("open-add");
+        popBtn.classList.remove("open-add");
         // Sign-out successful.
       }).catch((error) => {
         alert(error.code);
       });
     
     }
+    let logout = document.getElementById("logout");
     logout.addEventListener("click", async ()=>{
       SignOut();
     });
