@@ -215,8 +215,8 @@ async function SignIn() {
             let user = result.user;
             logIN.classList.add("close-signIn");
             container.classList.add("open-container");
-            // logout.classList.add("open-logout");
-            // btn.classList.add("open-add");
+            logout.classList.add("open-logout");
+            btn.classList.add("open-add");
             uid = user.uid;
             alert("Successfully LoggedIn");
             // ...
@@ -238,15 +238,19 @@ async function SignIn() {
         SignIn();
     });
 
-    // logout.addEventListener("click", async ()=>{
-    //   signOut(auth).then(() => {
-    //     logout.classList.remove("open-logout");
-    //     btn.classList.remove("open-add");
-    //     // Sign-out successful.
-    //   }).catch((error) => {
-    //     alert(error.code);
-    //   });
-    // });
+    async function SignOut(){
+      await signOut(auth).then(() => {
+        logout.classList.remove("open-logout");
+        btn.classList.remove("open-add");
+        // Sign-out successful.
+      }).catch((error) => {
+        alert(error.code);
+      });
+    
+    }
+    logout.addEventListener("click", async ()=>{
+      SignOut();
+    });
 
 
 
