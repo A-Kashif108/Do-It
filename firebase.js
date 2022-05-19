@@ -88,11 +88,11 @@ onAuthStateChanged(auth, (user) => {
           });
     
     
-    const q = query(collection(db, uid));
-    const querySnapshot = await getDocs(q);
+    const allq = query(collection(db, uid));
+    const querSnapshot = await getDocs(allq);
     
     all.innerHTML = "";
-    querySnapshot.forEach((doc) => {
+    querSnapshot.forEach((doc) => {
       const task = doc.data();
     
       all.innerHTML += `
