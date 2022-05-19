@@ -100,7 +100,6 @@ querySnapshot.forEach((doc) => {
 });
 
 
-
 const comp = query(collection(db, uid.toString()), where("status", "==", "Done"));
 const completedSnapshot = await getDocs(comp);
 
