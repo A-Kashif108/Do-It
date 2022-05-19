@@ -38,6 +38,7 @@ const db = getFirestore();
 let container = document.getElementById("main");
 let popup = document.getElementById("popup");
 let btn = document.getElementById("add");
+let logout = document.getElementById("logout");
 let popBtn = document.getElementById("newtask");
 let canBtn = document.getElementById("cancel");
 let frm = document.getElementById("frm");
@@ -54,6 +55,8 @@ popBtn.addEventListener("click", ()=>{
   popup.classList.add("open-popup");
   title.focus();
 });
+
+
 
   btn.addEventListener("click", async ()=>{
     const docRef = await addDoc(collection(db, uid), {
@@ -183,7 +186,7 @@ btn.addEventListener("click", async({target: {dataset}})=>{
   
 }));
 
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";;
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";;
 
 const auth = getAuth();
 
@@ -233,7 +236,13 @@ async function SignIn() {
         SignIn();
     });
 
-    
+    logout.addEventListener("click", async ()=>{
+      signOut(auth).then(() => {
+        // Sign-out successful.
+      }).catch((error) => {
+        alert(error.code);
+      });
+    });
 
 
 
