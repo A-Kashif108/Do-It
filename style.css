@@ -175,9 +175,6 @@ a:hover{
     color: #c7eae4;
     visibility: hidden;
 }
-.open-add{
-  visibility: visible;
-}
 .logout{
     position: absolute;
     top: 2.3%;
